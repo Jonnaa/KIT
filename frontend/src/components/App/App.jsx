@@ -1,10 +1,18 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { Routes, Route, Link } from "react-router-dom";
+import LandingPage from '../LandingPage';
+import DetailsPage from '../DetailsPage';
 
 export default function App() {
 
   return (
     <>
-      <h1>Hello world</h1>
+      <Link to="/">KIT</Link>
+
+      <Routes>
+        <Route path="/" element={<LandingPage/>}/>
+        <Route path="/details" element={<DetailsPage />} />
+      </Routes>
     </>
   )
 }
