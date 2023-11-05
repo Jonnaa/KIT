@@ -11,9 +11,35 @@ const path = require('path')
 const db = require('./models');
 
 
+/* Require the routes in the controllers folder
+--------------------------------------------------------------- */
+const commentsCtrl = require('./controllers/comments')
+const postsCtrl = require('./controllers/posts')
+
+
 /* Create the Express app
 ---------------------------------------------------------- */
 const app = express();
+
+
+/* Middleware (app.use)
+---------------------------------------------------------- */
+// cross origin allowance
+app.use(cors())
+// body parser - used for POST/PUT/PATCH routes:
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json())
+
+
+/* Mount routes
+---------------------------------------------------------- */
+// This tells our app to look at the `controllers/comments.js` file 
+// to handle all routes that begin with `localhost:3000/api/comments`
+app.use('/api/comments', commentsCtrl)
+
+// This tells our app to look at the `controllers/posts.js` file 
+// to handle all routes that begin with `localhost:3000/api/posts`
+app.use('/api/posts', postsCtrl)
 
 /* Tell the app to listen on the specified port
 ---------------------------------------------------------- */
