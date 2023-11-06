@@ -5,7 +5,7 @@ import DetailsPage from '../DetailsPage';
 import CreatePostPage from '../CreatePostPage';
 
 export default function App() {
-
+  const [detailsContent, setDetailsContent] = useState([])
   return (
     <>
       <div className='flex justify-between px-10 py-2'>
@@ -14,8 +14,8 @@ export default function App() {
       </div>
 
       <Routes>
-        <Route path="/" element={<LandingPage/>}/>
-        <Route path="/details" element={<DetailsPage />} />
+        <Route path="/" element={<LandingPage updateDetails={setDetailsContent}/>}/>
+        <Route path="/details" element={<DetailsPage post={detailsContent}/>} />
         <Route path="/create" element={<CreatePostPage />} />
       </Routes>
     </>

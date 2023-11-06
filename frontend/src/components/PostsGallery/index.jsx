@@ -2,7 +2,7 @@ import { useState, useEffect } from "react"
 import {getPosts} from "../../../utils/backend"
 import Post from "../Post"
 
-export default function PostsGallery(){
+export default function PostsGallery({updateDetails}){
     // All posts stored in db will go here
     const [posts , setPosts] = useState([])
 
@@ -16,7 +16,7 @@ export default function PostsGallery(){
 
     if (posts.length > 0){
         content = posts.map(post=>{
-            return <Post key={post._id} data={post}/>
+            return <Post key={post._id} data={post} updateDetails={updateDetails}/>
         })
     }
     return(
