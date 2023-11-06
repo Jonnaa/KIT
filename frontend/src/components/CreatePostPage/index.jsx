@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { createPost } from "../../../utils/backend"
+import { Link } from "react-router-dom"
 
 
 export default function CreatePostPage(){
@@ -24,7 +25,10 @@ export default function CreatePostPage(){
         setUploadStatus("Uploading...")
         // Create post then go to post detail
         createPost({...formContent})
-            .then(()=>setUploadStatus("Upload successful!"))
+            .then((data)=>{
+                console.log(data)
+                setUploadStatus("Upload successful!")
+            })
         setFormContent({
             title: '',
             img: '',
@@ -40,6 +44,7 @@ export default function CreatePostPage(){
                     name="title"
                     value={formContent.title}
                     onChange={handleInputChange}
+                    required
                 />
                 <br />
                 <label htmlFor="img">Image Link:</label>
@@ -47,6 +52,7 @@ export default function CreatePostPage(){
                     name="img"
                     value={formContent.img}
                     onChange={handleInputChange}
+                    required
                 />
                 <br />
                 <label htmlFor="description">Description:</label>
@@ -54,6 +60,7 @@ export default function CreatePostPage(){
                     name="description"
                     value={formContent.description}
                     onChange={handleInputChange}
+                    required
                 />
                 <br />
                 <button type="submit">
