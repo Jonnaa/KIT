@@ -7,14 +7,14 @@ export default function Post({data, updateDetails}){
     
     
     return(
-        <Link 
-            to="/details" 
-            onClick={() => { updateDetails(data)}}
-        >
-            <div className="w-1/3 mx-auto">
+        <div className="w-1/3 mx-auto">
+            <Link 
+                to="/details" 
+                onClick={() => { updateDetails(data)}}
+            >
                 <h1>{title}</h1>
                 <img src={img} alt="" />
-            </div>
-        </Link>
+            </Link>
+        </div>
     )
 }
