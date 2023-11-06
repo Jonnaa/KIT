@@ -19,7 +19,7 @@ const db = require('../models')
 
 // Index Route (GET) | Gets all comments for a post
 router.get('/:postId', function(req,res){
-    db.Comment.find({postID: req.params.postId})
+    db.Comment.find({postId: req.params.postId})
         .then(comments => res.json(comments))
 })
 
