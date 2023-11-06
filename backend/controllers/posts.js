@@ -19,7 +19,7 @@ const db = require('../models')
 
 // Index Route (GET) | Gets all posts available
 router.get('/', function(req,res){
-    db.Post.find()
+    db.Post.find().sort({createdAt:-1})
         .then(posts => res.json(posts))
 })
 

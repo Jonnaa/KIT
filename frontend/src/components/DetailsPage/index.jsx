@@ -1,3 +1,5 @@
+import CommentsGallery from "../CommentsGallery"
+
 export default function DetailsPage({post}){
     return(
         <div>
@@ -6,9 +8,7 @@ export default function DetailsPage({post}){
                 <img src={post.img} alt="post image" />
                 <p>{post.description}</p>
             </div>
-            <div>
-                <h3>comments would go here</h3>
-            </div>
+            <CommentsGallery id={post._id}/>
         </div>
     )
 }

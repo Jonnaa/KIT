@@ -32,7 +32,7 @@ export async function getComments(postId) {
     return data
 }
 
-export async function postComment(comment) {
+export async function createComment(comment) {
     const { data } = await axios.post('api/comments', comment)
     return data
 }

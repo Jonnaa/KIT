@@ -1,4 +1,4 @@
-export default function Comment(){
+export default function Comment({data}){
     return(
         <h1>comment</h1>
     )

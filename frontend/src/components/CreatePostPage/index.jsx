@@ -1,7 +1,5 @@
 import { useState } from "react"
 import { createPost } from "../../../utils/backend"
-import { Link } from "react-router-dom"
-
 
 export default function CreatePostPage(){
     const [formContent, setFormContent] = useState({
