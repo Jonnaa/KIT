@@ -14,7 +14,6 @@ export default function CommentsGallery({postId}){
         getComments(postId)
             .then(comments => setComments(comments))
     }, [])
-
     function handleInputChange(event) {
         setNewCommentData({
             ...newCommentData,
@@ -34,21 +33,21 @@ export default function CommentsGallery({postId}){
     function handleSubmit(event){
         event.preventDefault()
         setCreateMode(false)
-        console.log(newCommentData)
         createComment({...newCommentData, postId:postId})
             .then(()=>refreshComments())
     }
 
-    let commentGallery = <p>No one has commented on this post...</p>
+    let commentGallery = [<p key='0'>No one has commented on this post...</p>]
 
-    if(comments>0){
+    if(comments.length>0){
         commentGallery = comments.map(comment=>{
+            //<Comment key={comment._id} data={comment} refreshComments={refreshComments}/>
             return <Comment key={comment._id} data={comment} refreshComments={refreshComments}/>
         })
     }
     let formButton='Add a Comment'
-    if(createMode)
-        formButton= 'Cancel'
+    if(createMode){formButton= 'Cancel'}
+        
     return(
         <div>
             <h1>Comments</h1>

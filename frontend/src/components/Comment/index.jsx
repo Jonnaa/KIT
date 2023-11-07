@@ -7,7 +7,6 @@ export default function Comment({data, refreshComments}){
         name: data.name,
         content: data.content
     })
-
     function handleInputChange(event) {
         setEditModeData({
             ...editModeData,
@@ -57,6 +56,9 @@ export default function Comment({data, refreshComments}){
     }
 
     return(
-        {commentDisplay}
+        // <h1>test</h1>
+        <>
+            {commentDisplay}
+        </>
     )
 }
