@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { getComments, createComment } from "../../../utils/backend"
 import Comment from "../Comment"
 
-export default function CommentsGallery({id}){
+export default function CommentsGallery({postId}){
     const [comments, setComments] = useState([])
     const [createMode, setCreateMode]= useState(false)
     const [newCommentData, setNewCommentData] = useState({
@@ -11,7 +11,7 @@ export default function CommentsGallery({id}){
     })
 
     useEffect(() => {
-        getComments(id)
+        getComments(postId)
             .then(comments => setComments(comments))
     }, [])
 
@@ -27,7 +27,7 @@ export default function CommentsGallery({id}){
     }
 
     function refreshComments() {
-        getComments(id)
+        getComments(postId)
             .then(refreshCommentData => setComments(refreshCommentData))
     }
 
@@ -35,7 +35,7 @@ export default function CommentsGallery({id}){
         event.preventDefault()
         setCreateMode(false)
         console.log(newCommentData)
-        createComment({...newCommentData, id:id})
+        createComment({...newCommentData, postId:postId})
             .then(()=>refreshComments())
     }
 

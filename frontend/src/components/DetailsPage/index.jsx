@@ -8,7 +8,7 @@ export default function DetailsPage({post}){
                 <img src={post.img} alt="post image" />
                 <p>{post.description}</p>
             </div>
-            <CommentsGallery id={post._id}/>
+            <CommentsGallery postId={post._id}/>
         </div>
     )
 }
