@@ -22,16 +22,16 @@ export default function CreatePostPage({setPosts}){
 
         // Don't let page reload
         event.preventDefault()
-        // setUploadStatus("Uploading...")
+        setUploadStatus("Uploading...")
         console.log("Uploading...")
         // Create post then go to post detail
         createPost({...formContent})
             .then(()=>{
-                // setUploadStatus("Upload successful!")
+                setUploadStatus("Upload successful!")
                 console.log("Upload successful!")
-                getPosts()
-                    .then(posts=>setPosts(posts))
-                    .catch(err=>console.log(err))
+                // getPosts()
+                //     .then(posts=>setPosts(posts))
+                //     .catch(err=>console.log(err))
             })
             .catch(err=>console.log(err))
         setFormContent({
