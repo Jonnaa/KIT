@@ -28,6 +28,7 @@ export default function CommentsGallery({postId}){
     function refreshComments() {
         getComments(postId)
             .then(refreshCommentData => setComments(refreshCommentData))
+            .catch(err=> console.log(err))
     }
 
     function handleSubmit(event){
@@ -35,6 +36,7 @@ export default function CommentsGallery({postId}){
         setCreateMode(false)
         createComment({...newCommentData, postId:postId})
             .then(()=>refreshComments())
+            .catch(err=> console.log(err))
     }
 
     let commentGallery = [<p key='0'>No one has commented on this post...</p>]

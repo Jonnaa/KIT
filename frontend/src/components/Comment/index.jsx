@@ -18,11 +18,13 @@ export default function Comment({data, refreshComments}){
         setEditMode(false)
         updateComment(editModeData, data._id)
             .then(() => refreshComments())
+            .catch(err=> console.log(err))
     }
 
     function handleDelete() {
         deleteComment(data._id)
             .then(() => refreshComments())
+            .catch(err=> console.log(err))
     }
 
     // Edit mode false

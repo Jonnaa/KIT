@@ -1,10 +1,10 @@
 import PostsGallery from "../PostsGallery"
 
-export default function LandingPage({updateDetails}){
+export default function LandingPage({updateDetails, posts, setPosts}){
     return(
         <>
             <h1>landing page</h1>
-            <PostsGallery updateDetails={updateDetails}/>
+            <PostsGallery updateDetails={updateDetails} posts={posts} setPosts={setPosts}/>
         </>
     )
 }

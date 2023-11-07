@@ -2,9 +2,9 @@ import { useState, useEffect } from "react"
 import {getPosts} from "../../../utils/backend"
 import Post from "../Post"
 
-export default function PostsGallery({updateDetails}){
+export default function PostsGallery({updateDetails, posts, setPosts}){
     // All posts stored in db will go here
-    const [posts , setPosts] = useState([])
+    // const [posts , setPosts] = useState([])
 
     // Get all posts stored in db
     useEffect(() => {
