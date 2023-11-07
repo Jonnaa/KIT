@@ -1,6 +1,5 @@
 import { useState } from "react"
 import { createPost, getPosts } from "../../../utils/backend"
-import { Link } from "react-router-dom";
 
 export default function CreatePostPage({setPosts}){
     const [formContent, setFormContent] = useState({
@@ -18,25 +17,28 @@ export default function CreatePostPage({setPosts}){
         })
     }
 
-    // function handleSubmit(event){
-    function handleSubmit(){
+    function handleSubmit(event){
+    // function handleSubmit(){
 
         // Don't let page reload
-        // event.preventDefault()
-        setUploadStatus("Uploading...")
+        event.preventDefault()
+        // setUploadStatus("Uploading...")
+        console.log("Uploading...")
         // Create post then go to post detail
         createPost({...formContent})
-            .then((data)=>{
-                console.log(data)
-                setUploadStatus("Upload successful!")
+            .then(()=>{
+                // setUploadStatus("Upload successful!")
+                console.log("Upload successful!")
                 getPosts()
                     .then(posts=>setPosts(posts))
+                    .catch(err=>console.log(err))
             })
-        // setFormContent({
-        //     title: '',
-        //     img: '',
-        //     description: ''
-        // })
+            .catch(err=>console.log(err))
+        setFormContent({
+            title: '',
+            img: '',
+            description: ''
+        })
     }
 
     return(
@@ -66,10 +68,10 @@ export default function CreatePostPage({setPosts}){
                     required
                 />
                 <br />
-                {/* <button type="submit">
+                <button type="submit">
                     Upload
-                </button> */}
-                <Link to="/" onClick={handleSubmit}>Upload</Link>
+                </button>
+                {/* <Link to="/" onClick={handleSubmit}>Upload</Link> */}
             </form>
             {uploadStatus}
         </div>
