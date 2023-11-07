@@ -18,7 +18,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<LandingPage updateDetails={setDetailsContent} posts={posts} setPosts={setPosts}/>}/>
         <Route path="/details" element={<DetailsPage post={detailsContent} setPosts={setPosts}/>} />
-        <Route path="/create" element={<CreatePostPage />} />
+        <Route path="/create" element={<CreatePostPage setPosts={setPosts}/>} />
       </Routes>
     </>
   )
