@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { getComments, createComment } from "../../../utils/backend"
 import Comment from "../Comment"
 
-export default function CommentsGallery({postId}){
+export default function CommentsGallery({postId, loggedIn}){
     const [comments, setComments] = useState([])
     const [createMode, setCreateMode]= useState(false)
     const [newCommentData, setNewCommentData] = useState({
@@ -53,7 +53,10 @@ export default function CommentsGallery({postId}){
     return(
         <div>
             <h1>Comments</h1>
-            <button onClick={toggleCreateComment}>{formButton}</button>
+            {loggedIn?
+                <button onClick={toggleCreateComment}>{formButton}</button>
+                :<></>
+            }
             {createMode && <form onSubmit={handleSubmit}>
                 <input 
                 name="name"

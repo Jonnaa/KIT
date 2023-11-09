@@ -91,7 +91,7 @@ export default function DetailsPage({post, setPosts, loggedIn}){
     return(
         <>
             {postDetails}
-            <CommentsGallery postId={post._id}/>
+            <CommentsGallery postId={post._id} loggedIn={loggedIn}/>
         </>
     )
 }
