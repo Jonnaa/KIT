@@ -8,6 +8,7 @@ export default function SignUpLoginPage({setLoggedIn}){
     const { formType } = useParams()
     const [userData, setUserData] = useState({
         username:'',
+        name:'',
         email:'',
         password:'',
     })
@@ -35,6 +36,16 @@ export default function SignUpLoginPage({setLoggedIn}){
     let signUpEmail = <></>
     if(formType!=='login'){
         signUpEmail=<>
+            <label htmlFor="name">First Name</label>
+            <input
+                name="name"
+                type="name"
+                required
+                placeholder="first name"
+                value={userData.name}
+                onChange={handleInputChange}
+            />
+            <br />
             <label htmlFor="email">E-mail</label>
             <input
                 name="email"
@@ -58,8 +69,8 @@ export default function SignUpLoginPage({setLoggedIn}){
                     placeholder="username"
                     value={userData.username}
                     onChange={handleInputChange}
-                 />
-                 <br />
+                />
+                <br />
                 {signUpEmail}
                 <label htmlFor="password">Password</label>
                 <input
@@ -70,7 +81,8 @@ export default function SignUpLoginPage({setLoggedIn}){
                     placeholder="password"
                     value={userData.password}
                     onChange={handleInputChange}
-                 />
+                />
+                <br />
                 <button type="submit">
                     {authAction}
                 </button>

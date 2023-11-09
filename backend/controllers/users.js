@@ -32,7 +32,7 @@ router.post('/signup', (req, res) => {
         .then(user => {
             // if the database creates a user successfully, assign a JWT to the user and send the JWT as the response
             const token = jwt.encode({ id: user.id }, config.jwtSecret)
-            res.json({ token: token })
+            res.json({ token: token, name:user.name })
         })
         // send an error if the database fails to create a user
         .catch(() => {
@@ -55,7 +55,8 @@ router.post('/login', async (req, res) => {
         const token = jwt.encode(payload, config.jwtSecret)
         res.json({
             token: token,
-            username: foundUser.username
+            username: foundUser.username,
+            name:foundUser.name,
         })
         // if the user was not found in the database OR their password was incorrect, send an error
     } else {
