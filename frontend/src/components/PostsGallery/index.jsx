@@ -20,7 +20,7 @@ export default function PostsGallery({updateDetails, posts, setPosts}){
         })
     }
     return(
-        <div>
+        <div className="flex flex-wrap">
             {content}
         </div>
         
