@@ -50,14 +50,12 @@ export default function DetailsPage({post, setPosts, loggedIn}){
         </>
     }
     // Edit mode false
-    let postDetails = <div>
-        <div className="border-y-4 border-y-black">
+    let postDetails = <div className="">
             <h2>{postData.title}</h2>
-            <img src={postData.img} alt="post image" />
+            <img src={postData.img} alt="post image" className="w-full max-w-screen-sm"/>
             <p>{postData.description}</p>
             {insideContent}
         </div>
-    </div>
 
     // Edit Mode true
     if(editMode){

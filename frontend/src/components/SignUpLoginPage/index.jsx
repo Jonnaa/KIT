@@ -36,6 +36,7 @@ export default function SignUpLoginPage({setLoggedIn}){
     let signUpEmail = <></>
     if(formType!=='login'){
         signUpEmail=<>
+            <div className="flex justify-between">
             <label htmlFor="name">First Name</label>
             <input
                 name="name"
@@ -44,23 +45,29 @@ export default function SignUpLoginPage({setLoggedIn}){
                 placeholder="first name"
                 value={userData.name}
                 onChange={handleInputChange}
+                className="w-7/12 rounded-lg pl-2"
             />
+            </div>
             <br />
+            <div className="flex justify-between">
             <label htmlFor="email">E-mail</label>
             <input
                 name="email"
                 type="email"
                 required
-                placeholder="email@gmail.com"
+                placeholder="name@email.com"
                 value={userData.email}
                 onChange={handleInputChange}
-                />
-                <br />
+                className="w-7/12 rounded-lg pl-2"
+            />
+            </div>
+            <br />
         </>
     }
     return(
         <>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} className="bg-rose-100 w-11/12 max-w-md p-2 mx-auto mt-20 text-lg relative rounded-lg pl-2">
+                <div className="flex justify-between">
                 <label htmlFor="username">Username</label>
                 <input
                     name="username"
@@ -69,9 +76,12 @@ export default function SignUpLoginPage({setLoggedIn}){
                     placeholder="username"
                     value={userData.username}
                     onChange={handleInputChange}
+                    className="w-7/12 rounded-lg pl-2"
                 />
+                </div>
                 <br />
-                {signUpEmail}
+                {signUpEmail}   
+                <div className="flex justify-between">
                 <label htmlFor="password">Password</label>
                 <input
                     name="password"
@@ -81,7 +91,9 @@ export default function SignUpLoginPage({setLoggedIn}){
                     placeholder="password"
                     value={userData.password}
                     onChange={handleInputChange}
+                    className="w-7/12 rounded-lg pl-2"
                 />
+                </div>
                 <br />
                 <button type="submit">
                     {authAction}
