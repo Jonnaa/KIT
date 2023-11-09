@@ -10,15 +10,35 @@ export default function App() {
   const [detailsContent, setDetailsContent] = useState([])
   // All posts stored in db will go here
   const [posts , setPosts] = useState([])
+
+  let nav = <div className='flex justify-between px-10 py-2'>
+  <Link to="/">KIT</Link>
+  <Link to="/auth/signup">Sign Up</Link>
+  <Link to="/auth/login">Login</Link>
+  <Link to="/" onClick={logOut}>Logout</Link>
+</div>
+  if(localStorage.getItem("userToken"))
+  nav = <div className='flex justify-between px-10 py-2'>
+  <Link to="/">KIT</Link>
+  <Link to="/create">Create Post</Link>
+  <Link to="/" onClick={logOut}>Logout</Link>
+</div>
   return (
     <>
-      <div className='flex justify-between px-10 py-2'>
-        <Link to="/">KIT</Link>
-        <Link to="/create">Create Post</Link>
-        <Link to="/auth/signup">Sign Up</Link>
-        <Link to="/auth/login">Login</Link>
-        <Link to="/" onClick={logOut}>Logout</Link>
-      </div>
+      {localStorage.getItem("userToken")?  
+        <div className='flex justify-between px-10 py-2'>
+          <Link to="/">KIT</Link>
+          <Link to="/create">Create Post</Link>
+          <Link to="/" onClick={logOut}>Logout</Link>
+        </div>
+        :
+        <div className='flex justify-between px-10 py-2'>
+          <Link to="/">KIT</Link>
+          <Link to="/auth/signup">Sign Up</Link>
+          <Link to="/auth/login">Login</Link>
+          <Link to="/" onClick={logOut}>Logout</Link>
+        </div>
+      }
 
       <Routes>
         <Route path="/" element={<LandingPage updateDetails={setDetailsContent} posts={posts} setPosts={setPosts}/>}/>
