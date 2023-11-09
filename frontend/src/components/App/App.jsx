@@ -35,7 +35,7 @@ export default function App() {
 
       <Routes>
         <Route path="/" element={<LandingPage updateDetails={setDetailsContent} posts={posts} setPosts={setPosts}/>}/>
-        <Route path="/details" element={<DetailsPage post={detailsContent} setPosts={setPosts}/>} />
+        <Route path="/details" element={<DetailsPage post={detailsContent} setPosts={setPosts} loggedIn={loggedIn}/>} />
         <Route path="/create" element={<CreatePostPage setPosts={setPosts}/>} />
         <Route path="/auth/:formType" element={<SignUpLoginPage setLoggedIn={setLoggedIn}/>} />
       </Routes>

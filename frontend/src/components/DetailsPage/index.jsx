@@ -3,7 +3,7 @@ import CommentsGallery from "../CommentsGallery"
 import { getPosts, updatePost, deletePost } from "../../../utils/backend"
 import { Link } from "react-router-dom"
 
-export default function DetailsPage({post, setPosts}){
+export default function DetailsPage({post, setPosts, loggedIn}){
     const [editMode, setEditMode]= useState(false)
     const [postData, setPostData] = useState({
         title:post.title,
@@ -42,14 +42,20 @@ export default function DetailsPage({post, setPosts}){
             })
             .catch(err=>console.log(err))
     }
+    let insideContent=<></>
+    if(loggedIn){
+        insideContent=<>
+            <button onClick={toggleEditMode}>Edit</button>
+            <Link to="/" onClick={handleDelete}>Delete</Link>
+        </>
+    }
     // Edit mode false
     let postDetails = <div>
         <div className="border-y-4 border-y-black">
             <h2>{postData.title}</h2>
             <img src={postData.img} alt="post image" />
             <p>{postData.description}</p>
-            <button onClick={toggleEditMode}>Edit</button>
-            <Link to="/" onClick={handleDelete}>Delete</Link>
+            {insideContent}
         </div>
     </div>
 

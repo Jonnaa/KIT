@@ -44,7 +44,7 @@ router.post('/signup', (req, res) => {
 // LOG IN (log into a user account)
 router.post('/login', async (req, res) => {
     // attempt to find the user by their email in the database
-    const foundUser = await db.User.findOne({ email: req.body.email })
+    const foundUser = await db.User.findOne({ username: req.body.username })
         
     // check to:
     // 1. make sure the user was found in the database
@@ -55,7 +55,7 @@ router.post('/login', async (req, res) => {
         const token = jwt.encode(payload, config.jwtSecret)
         res.json({
             token: token,
-            email: foundUser.email
+            username: foundUser.username
         })
         // if the user was not found in the database OR their password was incorrect, send an error
     } else {

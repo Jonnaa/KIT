@@ -32,7 +32,21 @@ export default function SignUpLoginPage({setLoggedIn}){
         }
         navigate('/')
     }
-
+    let signUpEmail = <></>
+    if(formType!=='login'){
+        signUpEmail=<>
+            <label htmlFor="email">E-mail</label>
+            <input
+                name="email"
+                type="email"
+                required
+                placeholder="email@gmail.com"
+                value={userData.email}
+                onChange={handleInputChange}
+                />
+                <br />
+        </>
+    }
     return(
         <>
             <form onSubmit={handleSubmit}>
@@ -46,16 +60,7 @@ export default function SignUpLoginPage({setLoggedIn}){
                     onChange={handleInputChange}
                  />
                  <br />
-                <label htmlFor="email">E-mail</label>
-                <input
-                    name="email"
-                    type="email"
-                    required
-                    placeholder="email@gmail.com"
-                    value={userData.email}
-                    onChange={handleInputChange}
-                 />
-                 <br />
+                {signUpEmail}
                 <label htmlFor="password">Password</label>
                 <input
                     name="password"
