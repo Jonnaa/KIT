@@ -15,7 +15,7 @@ const db = require('./models');
 --------------------------------------------------------------- */
 const commentsCtrl = require('./controllers/comments')
 const postsCtrl = require('./controllers/posts')
-
+const usersCtrl = require('./controllers/users')
 
 /* Create the Express app
 ---------------------------------------------------------- */
@@ -33,13 +33,17 @@ app.use(express.json())
 
 /* Mount routes
 ---------------------------------------------------------- */
-// This tells our app to look at the `controllers/comments.js` file 
+// This tells the app to look at the `controllers/comments.js` file 
 // to handle all routes that begin with `localhost:3000/api/comments`
 app.use('/api/comments', commentsCtrl)
 
-// This tells our app to look at the `controllers/posts.js` file 
+// This tells the app to look at the `controllers/posts.js` file 
 // to handle all routes that begin with `localhost:3000/api/posts`
 app.use('/api/posts', postsCtrl)
+
+// This tells the app to look at the `controllers/users.js` file 
+// to handle all routes that begin with `localhost:3000/api/users`
+app.use('/api/users', usersCtrl)
 
 /* Tell the app to listen on the specified port
 ---------------------------------------------------------- */

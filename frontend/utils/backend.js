@@ -1,5 +1,14 @@
 import axios from 'axios'
 
+// Function to get usertoken from localStorage and put it into a header
+// Needs to be a function because on the JWT lesson, the userToken was not changing
+// unless the browser was refreshed
+
+function getHeader(){
+    // let authHeader = { headers: { 'Authorization': localStorage.getItem('userToken') } }
+    return { headers: { 'Authorization': localStorage.getItem('userToken') } }
+}
+
 /* -----------------------------------------------
                 api/posts routes
 -------------------------------------------------*/
@@ -9,17 +18,20 @@ export async function getPosts() {
 }
 
 export async function createPost(post) {
-    const { data } = await axios.post('api/posts', post)
+    let authHeader = getHeader()
+    const { data } = await axios.post('api/posts', post, authHeader)
     return data
 }
 
 export async function updatePost(post, id) {
-    const { data } = await axios.put(`api/posts/${id}`, post)
+    let authHeader = getHeader()
+    const { data } = await axios.put(`api/posts/${id}`, post, authHeader)
     return data
 }
 
 export async function deletePost(id) {
-    const { data } = await axios.delete(`api/posts/${id}`)
+    let authHeader = getHeader()
+    const { data } = await axios.delete(`api/posts/${id}`, authHeader)
     return data
 }
 
@@ -33,16 +45,19 @@ export async function getComments(postId) {
 }
 
 export async function createComment(comment) {
-    const { data } = await axios.post('api/comments', comment)
+    let authHeader = getHeader()
+    const { data } = await axios.post('api/comments', comment, authHeader)
     return data
 }
 
 export async function updateComment(comment, id) {
-    const { data } = await axios.put(`api/comments/${id}`, comment)
+    let authHeader = getHeader()
+    const { data } = await axios.put(`api/comments/${id}`, comment, authHeader)
     return data
 }
 
 export async function deleteComment(id) {
-    const { data } = await axios.delete(`api/comments/${id}`)
+    let authHeader = getHeader()
+    const { data } = await axios.delete(`api/comments/${id}`, authHeader)
     return data
 }
