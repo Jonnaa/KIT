@@ -10,33 +10,26 @@ export default function App() {
   const [detailsContent, setDetailsContent] = useState([])
   // All posts stored in db will go here
   const [posts , setPosts] = useState([])
+  const [loggedIn, setLoggedIn] = useState(false)
 
-  let nav = <div className='flex justify-between px-10 py-2'>
-  <Link to="/">KIT</Link>
-  <Link to="/auth/signup">Sign Up</Link>
-  <Link to="/auth/login">Login</Link>
-  <Link to="/" onClick={logOut}>Logout</Link>
-</div>
-  if(localStorage.getItem("userToken"))
-  nav = <div className='flex justify-between px-10 py-2'>
-  <Link to="/">KIT</Link>
-  <Link to="/create">Create Post</Link>
-  <Link to="/" onClick={logOut}>Logout</Link>
-</div>
+  function handleLogout(){
+    logOut()
+    setLoggedIn(false)
+  }
+
   return (
     <>
-      {localStorage.getItem("userToken")?  
+      {loggedIn?  
         <div className='flex justify-between px-10 py-2'>
           <Link to="/">KIT</Link>
           <Link to="/create">Create Post</Link>
-          <Link to="/" onClick={logOut}>Logout</Link>
+          <Link to="/" onClick={handleLogout}>Logout</Link>
         </div>
         :
         <div className='flex justify-between px-10 py-2'>
           <Link to="/">KIT</Link>
           <Link to="/auth/signup">Sign Up</Link>
           <Link to="/auth/login">Login</Link>
-          <Link to="/" onClick={logOut}>Logout</Link>
         </div>
       }
 
@@ -44,7 +37,7 @@ export default function App() {
         <Route path="/" element={<LandingPage updateDetails={setDetailsContent} posts={posts} setPosts={setPosts}/>}/>
         <Route path="/details" element={<DetailsPage post={detailsContent} setPosts={setPosts}/>} />
         <Route path="/create" element={<CreatePostPage setPosts={setPosts}/>} />
-        <Route path="/auth/:formType" element={<SignUpLoginPage />} />
+        <Route path="/auth/:formType" element={<SignUpLoginPage setLoggedIn={setLoggedIn}/>} />
       </Routes>
     </>
   )

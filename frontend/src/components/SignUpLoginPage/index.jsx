@@ -3,7 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { signUp, logIn } from "../../../utils/backend"
 
 
-export default function SignUpLoginPage(){
+export default function SignUpLoginPage({setLoggedIn}){
     const navigate = useNavigate();
     const { formType } = useParams()
     const [userData, setUserData] = useState({
@@ -24,9 +24,11 @@ export default function SignUpLoginPage(){
         if(formType ==='login'){
             const { token } = await logIn(userData)
             localStorage.setItem('userToken', token)
+            setLoggedIn(true)
         }else{
             const { token } = await signUp(userData)
             localStorage.setItem('userToken', token)
+            setLoggedIn(true)
         }
         navigate('/')
     }
