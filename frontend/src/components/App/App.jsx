@@ -4,6 +4,8 @@ import LandingPage from '../LandingPage';
 import DetailsPage from '../DetailsPage';
 import CreatePostPage from '../CreatePostPage';
 import SignUpLoginPage from '../SignUpLoginPage';
+import { logOut } from "../../../utils/backend"
+
 export default function App() {
   const [detailsContent, setDetailsContent] = useState([])
   // All posts stored in db will go here
@@ -15,6 +17,7 @@ export default function App() {
         <Link to="/create">Create Post</Link>
         <Link to="/auth/signup">Sign Up</Link>
         <Link to="/auth/login">Login</Link>
+        <Link to="/" onClick={logOut}>Logout</Link>
       </div>
 
       <Routes>

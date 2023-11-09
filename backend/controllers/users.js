@@ -63,6 +63,11 @@ router.post('/login', async (req, res) => {
     }
 })
 
+// // Log out
+// router.post('/logout', async (req,res)=>{
+
+// })
+
 
 /* Export these routes so that they are accessible in `server.js`
 --------------------------------------------------------------- */

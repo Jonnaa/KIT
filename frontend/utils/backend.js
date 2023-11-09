@@ -22,7 +22,10 @@ export async function logIn(user) {
     return data
 }
 
-
+export async function logOut(){
+    await localStorage.removeItem('userToken')
+    return
+}
 
 /* -----------------------------------------------
                 api/posts routes
