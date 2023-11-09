@@ -6,7 +6,7 @@ export default function LandingPage({updateDetails, posts, setPosts, loggedIn}){
         <>
             {loggedIn?<h1>Hello {name}</h1>
             :
-            <h1>landing page</h1>
+            <h1>Latest Posts</h1>
             }
             <PostsGallery updateDetails={updateDetails} posts={posts} setPosts={setPosts}/>
         </>

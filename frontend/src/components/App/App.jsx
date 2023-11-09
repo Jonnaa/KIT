@@ -17,6 +17,12 @@ export default function App() {
     setLoggedIn(false)
   }
 
+  useEffect(()=>{
+    if(localStorage.getItem('userToken')){
+      setLoggedIn(true)
+    }
+  },[])
+
   return (
     <>
       {loggedIn?  
