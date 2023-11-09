@@ -37,29 +37,29 @@ export default function SignUpLoginPage({setLoggedIn}){
     if(formType!=='login'){
         signUpEmail=<>
             <div className="flex justify-between">
-            <label htmlFor="name">First Name</label>
-            <input
-                name="name"
-                type="name"
-                required
-                placeholder="first name"
-                value={userData.name}
-                onChange={handleInputChange}
-                className="w-7/12 rounded-lg pl-2"
-            />
+                <label htmlFor="name">First Name</label>
+                <input
+                    name="name"
+                    type="name"
+                    required
+                    placeholder="first name"
+                    value={userData.name}
+                    onChange={handleInputChange}
+                    className="w-7/12 rounded-lg pl-2"
+                />
             </div>
             <br />
             <div className="flex justify-between">
-            <label htmlFor="email">E-mail</label>
-            <input
-                name="email"
-                type="email"
-                required
-                placeholder="name@email.com"
-                value={userData.email}
-                onChange={handleInputChange}
-                className="w-7/12 rounded-lg pl-2"
-            />
+                <label htmlFor="email">E-mail</label>
+                <input
+                    name="email"
+                    type="email"
+                    required
+                    placeholder="name@email.com"
+                    value={userData.email}
+                    onChange={handleInputChange}
+                    className="w-7/12 rounded-lg pl-2"
+                />
             </div>
             <br />
         </>
@@ -68,34 +68,34 @@ export default function SignUpLoginPage({setLoggedIn}){
         <>
             <form onSubmit={handleSubmit} className="bg-rose-100 w-11/12 max-w-md p-2 mx-auto mt-20 text-lg relative rounded-lg pl-2">
                 <div className="flex justify-between">
-                <label htmlFor="username">Username</label>
-                <input
-                    name="username"
-                    minLength="6"
-                    required
-                    placeholder="username"
-                    value={userData.username}
-                    onChange={handleInputChange}
-                    className="w-7/12 rounded-lg pl-2"
-                />
+                    <label htmlFor="username">Username</label>
+                    <input
+                        name="username"
+                        minLength="6"
+                        required
+                        placeholder="username"
+                        value={userData.username}
+                        onChange={handleInputChange}
+                        className="w-7/12 rounded-lg pl-2"
+                    />
                 </div>
                 <br />
                 {signUpEmail}   
                 <div className="flex justify-between">
-                <label htmlFor="password">Password</label>
-                <input
-                    name="password"
-                    type="password"
-                    minLength="6"
-                    required
-                    placeholder="password"
-                    value={userData.password}
-                    onChange={handleInputChange}
-                    className="w-7/12 rounded-lg pl-2"
-                />
+                    <label htmlFor="password">Password</label>
+                    <input
+                        name="password"
+                        type="password"
+                        minLength="6"
+                        required
+                        placeholder="password"
+                        value={userData.password}
+                        onChange={handleInputChange}
+                        className="w-7/12 rounded-lg pl-2"
+                    />
                 </div>
                 <br />
-                <button type="submit">
+                <button type="submit" className="bg-emerald-100 rounded-lg w-20">
                     {authAction}
                 </button>
             </form>

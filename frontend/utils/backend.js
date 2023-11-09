@@ -28,6 +28,7 @@ export async function logIn(user) {
 
 export async function logOut(){
     await localStorage.removeItem('userToken')
+    await localStorage.removeItem('name')
     return
 }
 

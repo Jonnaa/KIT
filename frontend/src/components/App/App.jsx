@@ -26,8 +26,8 @@ export default function App() {
   return (
     <>
       {loggedIn?  
-        <div className='flex justify-between px-10 py-2'>
-          <Link to="/" className=''>KIT</Link>
+        <div className='flex justify-between px-10 py-2 text-lg bg-emerald-100 font-medium'>
+          <Link to="/" className='text-2xl'>KIT</Link>
           <Link to="/create">Create Post</Link>
           <Link to="/" onClick={handleLogout}>Logout</Link>
         </div>

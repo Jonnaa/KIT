@@ -46,32 +46,38 @@ export default function CreatePostPage({setPosts}){
 
     return(
         <div>
-            <form onSubmit={handleSubmit}>
-                <label htmlFor="title">Title:</label>
-                <input
-                    name="title"
-                    value={formContent.title}
-                    onChange={handleInputChange}
-                    required
-                />
+            <form onSubmit={handleSubmit} className="bg-rose-100 w-11/12 max-w-md p-2 mx-auto mt-20 text-lg relative rounded-lg pl-2">
+                <div className="flex justify-between">
+                    <label htmlFor="title">Title:</label>
+                    <input
+                        name="title"
+                        value={formContent.title}
+                        onChange={handleInputChange}
+                        required
+                    />
+                </div>
                 <br />
-                <label htmlFor="img">Image Link:</label>
-                <input
-                    name="img"
-                    value={formContent.img}
-                    onChange={handleInputChange}
-                    required
-                />
+                <div className="flex justify-between">
+                    <label htmlFor="img">Image Link:</label>
+                    <input
+                        name="img"
+                        value={formContent.img}
+                        onChange={handleInputChange}
+                        required
+                    />
+                </div>
                 <br />
-                <label htmlFor="description">Description:</label>
-                <input 
-                    name="description"
-                    value={formContent.description}
-                    onChange={handleInputChange}
-                    required
-                />
+                <div className="flex justify-between">
+                    <label htmlFor="description">Description:</label>
+                    <input 
+                        name="description"
+                        value={formContent.description}
+                        onChange={handleInputChange}
+                        required
+                    />
+                </div>
                 <br />
-                <button type="submit">
+                <button type="submit" className="bg-emerald-100 rounded-lg w-20">
                     Upload
                 </button>
                 {/* <Link to="/" onClick={handleSubmit}>Upload</Link> */}
