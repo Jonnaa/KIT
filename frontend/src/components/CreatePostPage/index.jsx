@@ -1,7 +1,9 @@
 import { useState } from "react"
+import { useNavigate } from "react-router-dom";
 import { createPost, getPosts } from "../../../utils/backend"
 
 export default function CreatePostPage({setPosts}){
+    const navigate = useNavigate();
     const [formContent, setFormContent] = useState({
         title: '',
         img: '',
@@ -39,6 +41,7 @@ export default function CreatePostPage({setPosts}){
             img: '',
             description: ''
         })
+        navigate("/")
     }
 
     return(
