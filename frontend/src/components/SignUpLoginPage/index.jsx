@@ -45,7 +45,7 @@ export default function SignUpLoginPage({setLoggedIn}){
                     placeholder="first name"
                     value={userData.name}
                     onChange={handleInputChange}
-                    className="w-7/12 rounded-lg pl-2"
+                    className="w-7/12 rounded-lg pl-2 border-2 border-black/25"
                 />
             </div>
             <br />
@@ -58,7 +58,7 @@ export default function SignUpLoginPage({setLoggedIn}){
                     placeholder="name@email.com"
                     value={userData.email}
                     onChange={handleInputChange}
-                    className="w-7/12 rounded-lg pl-2"
+                    className="w-7/12 rounded-lg pl-2 border-2 border-black/25"
                 />
             </div>
             <br />
@@ -76,7 +76,7 @@ export default function SignUpLoginPage({setLoggedIn}){
                         placeholder="username"
                         value={userData.username}
                         onChange={handleInputChange}
-                        className="w-7/12 rounded-lg pl-2"
+                        className="w-7/12 rounded-lg pl-2 border-2 border-black/25"
                     />
                 </div>
                 <br />
@@ -91,7 +91,7 @@ export default function SignUpLoginPage({setLoggedIn}){
                         placeholder="password"
                         value={userData.password}
                         onChange={handleInputChange}
-                        className="w-7/12 rounded-lg pl-2"
+                        className="w-7/12 rounded-lg pl-2 border-2 border-black/25"
                     />
                 </div>
                 <br />

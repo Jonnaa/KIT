@@ -54,6 +54,8 @@ export default function CreatePostPage({setPosts}){
                         value={formContent.title}
                         onChange={handleInputChange}
                         required
+                        className="border-2 border-black/25 rounded pl-1"
+                        placeholder="title"
                     />
                 </div>
                 <br />
@@ -64,6 +66,8 @@ export default function CreatePostPage({setPosts}){
                         value={formContent.img}
                         onChange={handleInputChange}
                         required
+                        className="border-2 border-black/25 rounded pl-1"
+                        placeholder="url"
                     />
                 </div>
                 <br />
@@ -74,6 +78,8 @@ export default function CreatePostPage({setPosts}){
                         value={formContent.description}
                         onChange={handleInputChange}
                         required
+                        className="border-2 border-black/25 rounded pl-1"
+                        placeholder="description"
                     />
                 </div>
                 <br />
