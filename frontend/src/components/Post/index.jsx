@@ -7,14 +7,14 @@ export default function Post({data, updateDetails}){
     
     
     return(
-        <div className="w-full sm:w-1/2 max-w-md max-h-96 mx-auto mb-5 px-5">
+        <div className="w-96 max-h-96 mx-auto mb-5 px-5">
             <Link 
                 to="/details" 
                 onClick={() => { updateDetails(data)}}
             >
-                <div className="bg-rose-100 font-medium relative flex flex-col rounded-lg">
-                    <h1>{title}</h1>
-                    <img src={img} alt="" className="object-scale-down h-80 w-full rounded-lg"/>
+                <div className="bg-rose-100 w-96 font-medium relative flex flex-col rounded-lg ">
+                    <h1 className="absolute top-0 text-white text-xl w-full bg-gray-200/25 pl-2 py-0 tracking-wide rounded-t-lg">{title}</h1>
+                    <img src={img} alt="" className="rounded-lg"/>
                 </div>
             </Link>
         </div>
