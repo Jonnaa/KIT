@@ -16,6 +16,7 @@ const db = require('./models');
 const commentsCtrl = require('./controllers/comments')
 const postsCtrl = require('./controllers/posts')
 const usersCtrl = require('./controllers/users')
+const groupsCtrl = require('./controllers/groups')
 
 /* Create the Express app
 ---------------------------------------------------------- */
@@ -44,6 +45,10 @@ app.use('/api/posts', postsCtrl)
 // This tells the app to look at the `controllers/users.js` file 
 // to handle all routes that begin with `localhost:3000/api/users`
 app.use('/api/users', usersCtrl)
+
+// This tells the app to look at the `controllers/groups.js` file 
+// to handle all routes that begin with `localhost:3000/api/groups`
+app.use('/api/groups', groupsCtrl)
 
 /* Tell the app to listen on the specified port
 ---------------------------------------------------------- */
