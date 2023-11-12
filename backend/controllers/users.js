@@ -64,6 +64,13 @@ router.post('/login', async (req, res) => {
     }
 })
 
+// Get groups
+router.get('/:id', async (req,res)=>{
+    await db.Group.find({creatorId:req.params.id})
+        .then(groups=>res.json(groups))
+        .catch(err=>res.json(err))
+})
+
 // // Log out
 // router.post('/logout', async (req,res)=>{
 
