@@ -14,6 +14,7 @@ export default function CommentsGallery({postId, loggedIn}){
         getComments(postId)
             .then(comments => setComments(comments))
     }, [])
+    
     function handleInputChange(event) {
         setNewCommentData({
             ...newCommentData,
