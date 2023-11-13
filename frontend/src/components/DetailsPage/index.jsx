@@ -61,12 +61,13 @@ export default function DetailsPage({post, setPosts, loggedIn}){
 
     // Edit Mode true
     if(editMode){
-        postDetails = <form onSubmit={handleSubmit}>
+        postDetails = <form onSubmit={handleSubmit} className="mt-5 text-center bg-rose-100 w-11/12 max-w-lg mx-auto rounded-lg p-5">
             <input 
                 name="title"
                 value={postData.title}
                 onChange={handleInputChange}
                 required
+                className="w-11/12 max-w-sm rounded-lg pl-2 mb-2 border-2 border-black/25 text-md md:text-lg"
             />
             <br />
             <input 
@@ -74,6 +75,7 @@ export default function DetailsPage({post, setPosts, loggedIn}){
                 value={postData.img}
                 onChange={handleInputChange}
                 required
+                className="w-11/12 max-w-sm rounded-lg pl-2 mb-2 border-2 border-black/25 text-md md:text-lg"
             />
             <br />
             <input 
@@ -81,10 +83,11 @@ export default function DetailsPage({post, setPosts, loggedIn}){
                 value={postData.description}
                 onChange={handleInputChange}
                 required
+                className="w-11/12 max-w-sm rounded-lg pl-2 mb-2 border-2 border-black/25 text-md md:text-lg"
             />
             <br />
-            <button onClick={toggleEditMode}>Cancel</button>
-            <button type="submit">Submit</button>
+            <button onClick={toggleEditMode} className="bg-emerald-100 rounded-lg w-20 text-md md:text-lg mr-2">Cancel</button>
+            <button type="submit" className="bg-emerald-100 rounded-lg w-20 text-md md:text-lg">Submit</button>
         </form>
     }
 

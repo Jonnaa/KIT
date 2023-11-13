@@ -44,7 +44,7 @@ export default function CommentsGallery({postId, loggedIn}){
         })
     }
 
-    let commentGallery = [<p key='0' className="ml-5 my-2">No one has commented on this post...</p>]
+    let commentGallery = [<p key='0' className="border-t-4 border-white p-2 pl-5 text-md md:text-lg">No one has commented on this post...</p>]
 
     if(comments.length>0){
         commentGallery = comments.map(comment=>{
