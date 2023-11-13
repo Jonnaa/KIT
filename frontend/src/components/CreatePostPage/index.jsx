@@ -31,9 +31,9 @@ export default function CreatePostPage({setPosts}){
             .then(()=>{
                 setUploadStatus("Upload successful!")
                 console.log("Upload successful!")
-                // getPosts()
-                //     .then(posts=>setPosts(posts))
-                //     .catch(err=>console.log(err))
+                getPosts()
+                    .then(posts=>setPosts(posts))
+                    .catch(err=>console.log(err))
             })
             .catch(err=>console.log(err))
         setFormContent({
