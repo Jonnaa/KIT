@@ -5,7 +5,6 @@ export default function Post({data, updateDetails}){
     // Post model only has title, img and desc
     const {title, img} = data
     
-    
     return(
         <div className="w-72 sm:w-96 mx-auto mb-5">
             <Link 

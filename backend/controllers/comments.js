@@ -72,8 +72,6 @@ router.put('/:id', authMiddleware, async (req, res) => {
     // Check if the user who sent the update request is the same user who created the comment
     const userComment = await db.Comment.findById(req.params.id)
         .catch(err=>console.log(err))
-    // console.log("\n"+req.user.id)
-    // console.log(userComment.userId)
     if (userComment.userId == req.user.id) {
         // If it is the original author, update the comment
         const newComment = await db.Comment.findByIdAndUpdate(

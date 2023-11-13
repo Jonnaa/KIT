@@ -66,7 +66,6 @@ export default function Comment({data, refreshComments, loggedIn}){
     }
 
     return(
-        // <h1>test</h1>
         <>
             {commentDisplay}
         </>

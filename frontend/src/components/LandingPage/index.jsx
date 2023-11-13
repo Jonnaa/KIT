@@ -9,6 +9,7 @@ export default function LandingPage({updateDetails, posts, setPosts, loggedIn}){
         getPosts()
             .then(posts => setPosts(posts))
     }, [])
+    
     return(
         <>
             {loggedIn?<h1 className="my-5 pl-4 text-xl font-medium">Hello {name}</h1>

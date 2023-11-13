@@ -30,7 +30,6 @@ const authMiddleware = (req, res, next) => {
             // Decode the token using the secret key and add the decoded payload to the request object
             const decodedToken = jwt.decode(token, config.jwtSecret);
             req.user = decodedToken;
-            // console.log(req.user)
             next();
         } catch (err) {
             // Return an error if the token is invalid

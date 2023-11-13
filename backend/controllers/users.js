@@ -43,9 +43,8 @@ router.post('/login', async (req, res) => {
     // attempt to find the user by their email in the database
     const foundUser = await db.User.findOne({ username: req.body.username })
         
-    // check to:
-    // 1. make sure the user was found in the database
-    // 2. make sure the user entered in the correct password
+    // make sure the user was found and the entered password is the
+    // same as the user password
     if (foundUser && foundUser.password === req.body.password) {
         // if the above applies, send the JWT to the browser
         const payload = { id: foundUser.id }

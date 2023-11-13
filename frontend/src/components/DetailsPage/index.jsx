@@ -36,9 +36,6 @@ export default function DetailsPage({post, setPosts, loggedIn}){
             deletePost(post._id)
             .then(()=>{
                 navigate("/")
-                // getPosts()
-                //     .then(posts=>setPosts(posts))
-                //     .catch(err=>console.log(err))
             })
             .catch(err=>console.log(err))
         }

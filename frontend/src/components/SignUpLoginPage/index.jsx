@@ -42,7 +42,9 @@ export default function SignUpLoginPage({setLoggedIn}){
         }
         
     }
+
     let signUpEmail = <></>
+
     if(formType!=='login'){
         signUpEmail=<>
             <div className="flex justify-between">
@@ -73,6 +75,7 @@ export default function SignUpLoginPage({setLoggedIn}){
             <br />
         </>
     }
+
     return(
         <>
             <form onSubmit={handleSubmit} className="bg-rose-100 w-11/12 max-w-md p-2 mx-auto mt-20 text-lg relative rounded-lg pl-2">

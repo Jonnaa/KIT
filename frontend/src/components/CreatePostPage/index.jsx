@@ -20,8 +20,6 @@ export default function CreatePostPage({setPosts}){
     }
 
     function handleSubmit(event){
-    // function handleSubmit(){
-
         // Don't let page reload
         event.preventDefault()
         setUploadStatus("Uploading...")
@@ -30,23 +28,19 @@ export default function CreatePostPage({setPosts}){
             .then(()=>{
                 setUploadStatus("Upload successful!")
                 navigate("/")
-                // getPosts()
-                //     .then(posts=>setPosts(posts))
-                //     .catch(err=>console.log(err))
             })
             .catch(err=>console.log(err))
         setFormContent({
             title: '',
             img: '',
             description: ''
-        })
-        
+        })  
     }
 
     return(
         <div>
             <form onSubmit={handleSubmit} className="bg-rose-100 w-11/12 max-w-md p-2 mx-auto mt-20 text-lg relative rounded-lg pl-2">
-                <div className="flex justify-between">
+                <div className="flex flex-col sm:flex-row justify-between">
                     <label htmlFor="title">Title:</label>
                     <input
                         name="title"
@@ -58,7 +52,7 @@ export default function CreatePostPage({setPosts}){
                     />
                 </div>
                 <br />
-                <div className="flex justify-between">
+                <div className="flex flex-col sm:flex-row justify-between">
                     <label htmlFor="img">Image Link:</label>
                     <input
                         name="img"
@@ -70,8 +64,8 @@ export default function CreatePostPage({setPosts}){
                     />
                 </div>
                 <br />
-                <div className="flex justify-between">
-                    <label htmlFor="description">Description:</label>
+                <div className="flex flex-col sm:flex-row justify-between">
+                    <label htmlFor="description" className="">Description:</label>
                     <input 
                         name="description"
                         value={formContent.description}
