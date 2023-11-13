@@ -25,12 +25,10 @@ export default function CreatePostPage({setPosts}){
         // Don't let page reload
         event.preventDefault()
         setUploadStatus("Uploading...")
-        console.log("Uploading...")
         // Create post then go to post detail
         createPost({...formContent})
             .then(()=>{
                 setUploadStatus("Upload successful!")
-                console.log("Upload successful!")
                 getPosts()
                     .then(posts=>setPosts(posts))
                     .catch(err=>console.log(err))
@@ -86,7 +84,6 @@ export default function CreatePostPage({setPosts}){
                 <button type="submit" className="bg-emerald-100 rounded-lg w-20 text-md md:text-lg shadow-lg hover:shadow-violet-300 hover:bg-emerald-300">
                     Upload
                 </button>
-                {/* <Link to="/" onClick={handleSubmit}>Upload</Link> */}
             </form>
             {uploadStatus}
         </div>

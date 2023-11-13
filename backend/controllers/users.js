@@ -34,8 +34,7 @@ router.post('/signup', (req, res) => {
         })
         // send an error if the database fails to create a user
         .catch(() => {
-            res.sendStatus(401)
-                .json({ data: 'Could not create a new user, try again' })
+            res.json({ data: 'Could not create a new user, try again' })
         })
 })
 

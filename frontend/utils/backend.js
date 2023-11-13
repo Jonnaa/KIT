@@ -15,7 +15,9 @@ function getHeader(){
 export async function signUp(user) {
     const { data } = await axios.post('/api/users/signup', user)
     const {name} = data
-    localStorage.setItem('name', name)
+    if(name){
+        localStorage.setItem('name', name)
+    }
     return data
 }
 

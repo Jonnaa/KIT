@@ -23,13 +23,21 @@ export default function SignUpLoginPage({setLoggedIn}){
     async function handleSubmit(event){
         event.preventDefault()
         if(formType ==='login'){
-            const { token } = await logIn(userData)
+            const data = await logIn(userData)
+            const {token} = data
             localStorage.setItem('userToken', token)
             setLoggedIn(true)
+            
         }else{
-            const { token } = await signUp(userData)
-            localStorage.setItem('userToken', token)
-            setLoggedIn(true)
+            const data = await signUp(userData)
+            const {token} = data
+            if(token){
+                localStorage.setItem('userToken', token)
+                setLoggedIn(true)
+            }
+            else{
+                alert(data.data)
+            }
         }
         navigate('/')
     }

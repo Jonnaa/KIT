@@ -48,8 +48,7 @@ export default function CommentsGallery({postId, loggedIn}){
 
     if(comments.length>0){
         commentGallery = comments.map(comment=>{
-            //<Comment key={comment._id} data={comment} refreshComments={refreshComments}/>
-            return <Comment key={comment._id} data={comment} refreshComments={refreshComments}/>
+            return <Comment key={comment._id} data={comment} refreshComments={refreshComments} loggedIn={loggedIn}/>
         })
     }
     let formButton=<button onClick={toggleCreateComment} className="bg-emerald-100 rounded-lg w-40 mb-2 text-md md:text-lg ml-5 my-2 shadow-lg hover:shadow-violet-300 hover:bg-emerald-300">Create A Comment</button>

@@ -27,20 +27,21 @@ export default function DetailsPage({post, setPosts, loggedIn}){
         event.preventDefault()
         
         updatePost(postData, post._id)
-            .then(()=>{setEditMode(false)
-                console.log("Successfuly updated post")})
+            .then(()=>setEditMode(false))
             .catch(err=> console.log(err))
     }
 
     function handleDelete(){
-        deletePost(post._id)
+        if(confirm("Are you sure you want to delete this post?")){
+            deletePost(post._id)
             .then(()=>{
-                console.log("Post deleted")
                 getPosts()
                     .then(posts=>setPosts(posts))
                     .catch(err=>console.log(err))
             })
             .catch(err=>console.log(err))
+        }
+        
         navigate("/")
     }
     let insideContent=<></>
@@ -48,7 +49,6 @@ export default function DetailsPage({post, setPosts, loggedIn}){
         insideContent=<div className="bg-rose-100 rounded-b-lg pb-2 max-w-lg mx-auto">
             <button onClick={toggleEditMode} className="bg-emerald-100 rounded-lg w-20 text-md md:text-lg mr-2 shadow-lg hover:shadow-violet-300 hover:bg-emerald-300">Edit</button>
             <button onClick={handleDelete} className="bg-emerald-100 rounded-lg w-20 text-md md:text-lg shadow-lg hover:shadow-violet-300 hover:bg-emerald-300">Delete</button>
-            {/* <Link to="/" onClick={handleDelete} className="bg-emerald-100 rounded-lg w-20">Delete</Link> */}
         </div>
     }
     // Edit mode false

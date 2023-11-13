@@ -13,8 +13,12 @@ export default function App() {
   const [loggedIn, setLoggedIn] = useState(false)
 
   function handleLogout(){
-    logOut()
-    setLoggedIn(false)
+    if(confirm("Are you sure you want to logout?"))
+    {
+      logOut()
+      setLoggedIn(false)
+    }
+    
   }
 
   useEffect(()=>{
