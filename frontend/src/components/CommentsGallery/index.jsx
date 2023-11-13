@@ -52,11 +52,11 @@ export default function CommentsGallery({postId, loggedIn}){
             return <Comment key={comment._id} data={comment} refreshComments={refreshComments}/>
         })
     }
-    let formButton=<button onClick={toggleCreateComment} className="bg-emerald-100 rounded-lg w-40 mb-2 text-md md:text-lg ml-5 my-2">Create A Comment</button>
-    if(createMode){formButton=<button onClick={toggleCreateComment} className="bg-emerald-100 rounded-lg w-20 mb-2 text-md md:text-lg ml-5 my-2">Cancel</button>}
+    let formButton=<button onClick={toggleCreateComment} className="bg-emerald-100 rounded-lg w-40 mb-2 text-md md:text-lg ml-5 my-2 shadow-lg hover:shadow-violet-300 hover:bg-emerald-300">Create A Comment</button>
+    if(createMode){formButton=<button onClick={toggleCreateComment} className="bg-emerald-100 rounded-lg w-20 mb-2 text-md md:text-lg ml-5 my-2 shadow-lg hover:shadow-violet-300 hover:bg-emerald-300">Cancel</button>}
         
     return(
-        <div className="w-11/12 max-w-xl mx-auto bg-rose-100 mt-5 pb-5 rounded-lg">
+        <div className="w-11/12 max-w-xl mx-auto bg-rose-100 mt-5 pb-5 rounded-lg drop-shadow-lg mb-5">
             <h1 className="text-lg md:text-xl pl-5 py-2 bg-violet-300/50">Comments</h1>
             {loggedIn?
                 <>{formButton}</>
@@ -81,7 +81,7 @@ export default function CommentsGallery({postId, loggedIn}){
                     className="rounded-lg pl-2 border-2 border-black/25 resize text-md md:text-lg"
                 />
                 <br />
-                <button type="submit" className="bg-emerald-100 rounded-lg w-20 text-md md:text-lg">Submit</button>
+                <button type="submit" className="bg-emerald-100 rounded-lg w-20 text-md md:text-lg shadow-lg hover:shadow-violet-300 hover:bg-emerald-300">Submit</button>
             </form>}
 
             {commentGallery}

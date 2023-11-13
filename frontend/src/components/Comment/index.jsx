@@ -31,8 +31,8 @@ export default function Comment({data, refreshComments}){
     let commentDisplay =<div className="border-t-4 border-white p-2 pl-5">
             <h1 className="text-lg md:text-xl">{data.name}</h1>
             <p className="text-md md:text-lg">{data.content}</p>
-            <button onClick={()=>{setEditMode(true)}} className="bg-emerald-100 rounded-lg w-20 text-md md:text-lg mr-2">Edit</button>
-            <button onClick={handleDelete} className="bg-emerald-100 rounded-lg w-20 text-md md:text-lg">Delete</button>
+            <button onClick={()=>{setEditMode(true)}} className="bg-emerald-100 rounded-lg w-20 text-md md:text-lg mr-2 shadow-lg hover:shadow-violet-300 hover:bg-emerald-300">Edit</button>
+            <button onClick={handleDelete} className="bg-emerald-100 rounded-lg w-20 text-md md:text-lg shadow-lg hover:shadow-violet-300 hover:bg-emerald-300">Delete</button>
         </div>
 
     // Edit mode true
@@ -54,8 +54,8 @@ export default function Comment({data, refreshComments}){
                 className="border-2 border-black/25 rounded pl-1 resize text-md md:text-lg"
             />
             <br />
-            <button onClick={()=>{setEditMode(false)}} className="bg-emerald-100 rounded-lg w-20 text-md md:text-lg mr-2">Cancel</button>
-            <button type="submit" className="bg-emerald-100 rounded-lg w-20 text-md md:text-lg">Submit</button>
+            <button onClick={()=>{setEditMode(false)}} className="bg-emerald-100 rounded-lg w-20 text-md md:text-lg mr-2 shadow-lg hover:shadow-violet-300 hover:bg-emerald-300">Cancel</button>
+            <button type="submit" className="bg-emerald-100 rounded-lg w-20 text-md md:text-lg shadow-lg hover:shadow-violet-300 hover:bg-emerald-300">Submit</button>
         </form>
     }
 

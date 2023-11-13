@@ -83,7 +83,7 @@ export default function CreatePostPage({setPosts}){
                     />
                 </div>
                 <br />
-                <button type="submit" className="bg-emerald-100 rounded-lg w-20">
+                <button type="submit" className="bg-emerald-100 rounded-lg w-20 text-md md:text-lg shadow-lg hover:shadow-violet-300 hover:bg-emerald-300">
                     Upload
                 </button>
                 {/* <Link to="/" onClick={handleSubmit}>Upload</Link> */}
