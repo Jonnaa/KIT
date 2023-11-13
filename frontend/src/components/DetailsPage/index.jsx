@@ -45,17 +45,17 @@ export default function DetailsPage({post, setPosts, loggedIn}){
     }
     let insideContent=<></>
     if(loggedIn){
-        insideContent=<div className="bg-rose-100 rounded-b-lg pb-2">
+        insideContent=<div className="bg-rose-100 rounded-b-lg pb-2 max-w-lg mx-auto">
             <button onClick={toggleEditMode} className="bg-emerald-100 rounded-lg w-20 text-md md:text-lg mr-2">Edit</button>
             <button onClick={handleDelete} className="bg-emerald-100 rounded-lg w-20 text-md md:text-lg">Delete</button>
             {/* <Link to="/" onClick={handleDelete} className="bg-emerald-100 rounded-lg w-20">Delete</Link> */}
         </div>
     }
     // Edit mode false
-    let postDetails = <div className="mt-5 text-center w-11/12 sm:w-9/12 max-w-lg mx-auto">
+    let postDetails = <div className="mt-5 text-center w-11/12 mx-auto">
         <img src={postData.img} alt="post image" className="w-full max-w-md active:max-w-3xl mx-auto mb-5 rounded-lg"/>
-        <h2 className="font-medium text-lg md:text-xl bg-rose-100/50 rounded-t-lg pt-2">{postData.title}</h2>
-        <p className="text-md md:text-lg bg-rose-100 py-2">{postData.description}</p>
+        <h2 className="font-medium text-lg md:text-xl bg-rose-100/50 rounded-t-lg pt-2 max-w-lg mx-auto">{postData.title}</h2>
+        <p className="text-md md:text-lg bg-rose-100 py-2 max-w-lg mx-auto">{postData.description}</p>
         {insideContent}
     </div>
 
