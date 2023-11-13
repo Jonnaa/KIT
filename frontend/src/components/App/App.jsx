@@ -26,16 +26,21 @@ export default function App() {
   return (
     <>
       {loggedIn?  
-        <div className='flex justify-between px-10 py-2 text-lg bg-emerald-100 font-medium drop-shadow-lg'>
-          <Link to="/" className='text-2xl'>KIT</Link>
-          <Link to="/create">Create Post</Link>
-          <Link to="/" onClick={handleLogout}>Logout</Link>
+        <div className='flex justify-between px-10 py-2 text-lg bg-emerald-100 font-medium drop-shadow-lg items-center'>
+          <Link to="/" className='text-2xl md:text-3xl xl:text-4xl text-violet-600 hover:text-rose-500'>KIT</Link>
+          <div>
+            <Link to="/create" className='text-md md:text-xl hover:text-rose-500 mr-6'>Create Post</Link>
+            <Link to="/" onClick={handleLogout} className='text-md md:text-xl hover:text-rose-500'>Logout</Link>
+          </div>
         </div>
         :
-        <div className='flex justify-between px-10 py-2 text-lg bg-emerald-100 font-medium'>
-          <Link to="/" className='text-2xl'>KIT</Link>
-          <Link to="/auth/signup">Sign Up</Link>
-          <Link to="/auth/login">Login</Link>
+        <div className='flex justify-between px-10 py-2 text-lg bg-emerald-100 font-medium drop-shadow-lg items-center'>
+          <Link to="/" className='text-2xl md:text-3xl xl:text-4xl text-violet-600 hover:text-rose-500'>KIT</Link>
+          <div>
+            <Link to="/auth/signup" className='text-md md:text-xl hover:text-rose-500 mr-6'>Sign Up</Link>
+            <Link to="/auth/login" className='text-md md:text-xl hover:text-rose-500'>Login</Link>
+          </div>
+          
         </div>
       }
 
