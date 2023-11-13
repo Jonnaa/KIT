@@ -30,7 +30,7 @@ const authMiddleware = (req, res, next) => {
             // Decode the token using the secret key and add the decoded payload to the request object
             const decodedToken = jwt.decode(token, config.jwtSecret);
             req.user = decodedToken;
-            console.log(req.user)
+            // console.log(req.user)
             next();
         } catch (err) {
             // Return an error if the token is invalid
@@ -54,11 +54,6 @@ router.get('/', function(req,res){
 
 // Create Route (POST) | This route receives a POST request to
 // /api/posts/ and creates a new post document using the request body
-// router.post('/', (req, res) => {
-//     db.Post.create(req.body)
-//         .then(post => res.json(post))
-//         .catch(err=>console.log(err))
-// })
 router.post('/', authMiddleware, (req, res) => {
     db.Post.create({
         ...req.body,
@@ -86,10 +81,6 @@ router.put('/:id', authMiddleware, async (req, res) => {
 
 // Delete Route (DELETE) | This route receives a DELETE request to
 // /api/posts and deletes a specific post using a post ID
-// router.delete('/:id', (req, res) => {
-//     db.Post.findByIdAndDelete(req.params.id)
-//         .then(() => res.json({ deletedPostId: req.params.id }))
-// })
 router.delete('/:id', authMiddleware, async (req, res) => {
     const userPost = await db.Post.findById(req.params.id)
     if(userPost.userId == req.user.id){
