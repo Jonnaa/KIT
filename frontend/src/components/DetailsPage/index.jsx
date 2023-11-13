@@ -35,14 +35,15 @@ export default function DetailsPage({post, setPosts, loggedIn}){
         if(confirm("Are you sure you want to delete this post?")){
             deletePost(post._id)
             .then(()=>{
-                getPosts()
-                    .then(posts=>setPosts(posts))
-                    .catch(err=>console.log(err))
+                navigate("/")
+                // getPosts()
+                //     .then(posts=>setPosts(posts))
+                //     .catch(err=>console.log(err))
             })
             .catch(err=>console.log(err))
         }
         
-        navigate("/")
+        
     }
     let insideContent=<></>
     if(loggedIn){

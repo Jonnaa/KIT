@@ -29,9 +29,10 @@ export default function CreatePostPage({setPosts}){
         createPost({...formContent})
             .then(()=>{
                 setUploadStatus("Upload successful!")
-                getPosts()
-                    .then(posts=>setPosts(posts))
-                    .catch(err=>console.log(err))
+                navigate("/")
+                // getPosts()
+                //     .then(posts=>setPosts(posts))
+                //     .catch(err=>console.log(err))
             })
             .catch(err=>console.log(err))
         setFormContent({
@@ -39,7 +40,7 @@ export default function CreatePostPage({setPosts}){
             img: '',
             description: ''
         })
-        navigate("/")
+        
     }
 
     return(
@@ -85,7 +86,9 @@ export default function CreatePostPage({setPosts}){
                     Upload
                 </button>
             </form>
-            {uploadStatus}
+            <div className="text-lg md:text-xl">
+                {uploadStatus}
+            </div>
         </div>
     )
 }

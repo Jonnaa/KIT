@@ -52,6 +52,13 @@ router.get('/', function(req,res){
         .then(posts => res.json(posts))
 })
 
+// Get Route to get user specific posts
+router.get('/:name', authMiddleware, async (req,res)=>{
+    await db.Post.find({userId: req.user.id}).sort({createdAt:-1})
+        .then(posts => res.json(posts))
+        .catch(err=>console.log(err))
+})
+
 // Create Route (POST) | This route receives a POST request to
 // /api/posts/ and creates a new post document using the request body
 router.post('/', authMiddleware, (req, res) => {

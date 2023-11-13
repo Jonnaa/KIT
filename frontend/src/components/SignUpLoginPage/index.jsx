@@ -27,19 +27,20 @@ export default function SignUpLoginPage({setLoggedIn}){
             const {token} = data
             localStorage.setItem('userToken', token)
             setLoggedIn(true)
-            
+            navigate('/')
         }else{
             const data = await signUp(userData)
             const {token} = data
             if(token){
                 localStorage.setItem('userToken', token)
                 setLoggedIn(true)
+                navigate('/')
             }
             else{
                 alert(data.data)
             }
         }
-        navigate('/')
+        
     }
     let signUpEmail = <></>
     if(formType!=='login'){

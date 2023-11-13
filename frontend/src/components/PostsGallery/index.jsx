@@ -6,11 +6,11 @@ export default function PostsGallery({updateDetails, posts, setPosts}){
     // All posts stored in db will go here
     // const [posts , setPosts] = useState([])
 
-    // Get all posts stored in db
-    useEffect(() => {
-        getPosts()
-            .then(posts => setPosts(posts))
-    }, [])
+    // // Get all posts stored in db
+    // useEffect(() => {
+    //     getPosts()
+    //         .then(posts => setPosts(posts))
+    // }, [])
 
     let content = <p>Your posts are loading...</p>
 
@@ -20,7 +20,7 @@ export default function PostsGallery({updateDetails, posts, setPosts}){
         })
     }
     return(
-        <div className="flex flex-wrap ">
+        <div className="flex flex-wrap gap-5">
             {content}
         </div>
         

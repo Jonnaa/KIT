@@ -13,7 +13,7 @@ export default function Post({data, updateDetails}){
                 onClick={() => { updateDetails(data)}}
             >
                 <div className="bg-rose-100 w-full font-medium relative flex flex-col rounded-lg shadow-xl hover:shadow-emerald-100">
-                    <h1 className="absolute top-0 text-xl w-full bg-emerald-300/50 pl-2 py-0 tracking-wide rounded-t-lg">{title}</h1>
+                    <h1 className="absolute top-0 text-xl w-full bg-emerald-300/75 pl-2 py-0 tracking-wide rounded-t-lg">{title}</h1>
                     <img src={img} alt="" className="rounded-lg"/>
                 </div>
             </Link>

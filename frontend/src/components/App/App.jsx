@@ -4,6 +4,7 @@ import LandingPage from '../LandingPage';
 import DetailsPage from '../DetailsPage';
 import CreatePostPage from '../CreatePostPage';
 import SignUpLoginPage from '../SignUpLoginPage';
+import AccountPage from '../AccountPage';
 import { logOut } from "../../../utils/backend"
 
 export default function App() {
@@ -30,10 +31,11 @@ export default function App() {
   return (
     <>
       {loggedIn?  
-        <div className='flex justify-between px-10 py-2 text-lg bg-emerald-100 font-medium drop-shadow-lg items-center'>
+        <div className='flex justify-between px-2 sm:px-10 py-2 text-lg bg-emerald-100 font-medium drop-shadow-lg items-center'>
           <Link to="/" className='text-2xl md:text-3xl xl:text-4xl text-violet-600 hover:text-rose-500'>KIT</Link>
           <div>
-            <Link to="/create" className='text-md md:text-xl hover:text-rose-500 mr-6'>Create Post</Link>
+            <Link to="/create" className='text-md md:text-xl hover:text-rose-500 mr-2 sm:mr-6'>Create Post</Link>
+            <Link to="/mypage" className='text-md md:text-xl hover:text-rose-500 mr-2 sm:mr-6'>My Page</Link>
             <Link to="/" onClick={handleLogout} className='text-md md:text-xl hover:text-rose-500'>Logout</Link>
           </div>
         </div>
@@ -52,6 +54,7 @@ export default function App() {
         <Route path="/" element={<LandingPage updateDetails={setDetailsContent} posts={posts} setPosts={setPosts} loggedIn={loggedIn}/>}/>
         <Route path="/details" element={<DetailsPage post={detailsContent} setPosts={setPosts} loggedIn={loggedIn}/>} />
         <Route path="/create" element={<CreatePostPage setPosts={setPosts}/>} />
+        <Route path="/mypage" element={<AccountPage updateDetails={setDetailsContent}/>}/>
         <Route path="/auth/:formType" element={<SignUpLoginPage setLoggedIn={setLoggedIn}/>} />
       </Routes>
     </>

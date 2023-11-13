@@ -42,6 +42,13 @@ export async function getPosts() {
     return data
 }
 
+export async function getPostsForUser() {
+    let name = localStorage.getItem("name")
+    let authHeader = getHeader()
+    const { data } = await axios.get(`api/posts/${name}`, authHeader)
+    return data
+}
+
 export async function createPost(post) {
     let authHeader = getHeader()
     const { data } = await axios.post('api/posts', post, authHeader)

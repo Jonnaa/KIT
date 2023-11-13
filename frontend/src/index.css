@@ -1,3 +1,27 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* https://www.geeksforgeeks.org/how-to-change-style-of-scrollbar-using-tailwind-css/# */
+
+/* width of scrollbar*/
+::-webkit-scrollbar {
+    width: 12px;
+  }
+  
+  /* Track(Contains the little bar)*/
+  ::-webkit-scrollbar-track {
+    background: #6e6e6e;
+    border-radius: 3px;
+  }
+  
+  /* Handle (bar idicating position of scroll)*/
+  ::-webkit-scrollbar-thumb {
+    background: #000000;
+    border-radius: 3px;
+  }
+  
+  /* Handle on hover(Hover effect for bar) */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #d1fae5;
+  }
