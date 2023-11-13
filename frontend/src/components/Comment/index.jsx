@@ -28,21 +28,22 @@ export default function Comment({data, refreshComments}){
     }
 
     // Edit mode false
-    let commentDisplay =<div>
-            <p>{data.name}</p>
-            <p>{data.content}</p>
-            <button onClick={()=>{setEditMode(true)}}>Edit</button>
-            <button onClick={handleDelete}>Delete</button>
+    let commentDisplay =<div className="border-t-4 border-white p-2 pl-5">
+            <h1 className="text-lg md:text-xl">{data.name}</h1>
+            <p className="text-md md:text-lg">{data.content}</p>
+            <button onClick={()=>{setEditMode(true)}} className="bg-emerald-100 rounded-lg w-20 text-md md:text-lg mr-2">Edit</button>
+            <button onClick={handleDelete} className="bg-emerald-100 rounded-lg w-20 text-md md:text-lg">Delete</button>
         </div>
 
     // Edit mode true
     if(editMode){
-        commentDisplay = <form onSubmit={handleSubmit}>
+        commentDisplay = <form onSubmit={handleSubmit} className="border-t-4 border-white p-2 pl-5">
             <input 
                 name="name"
                 value={editModeData.name}
                 onChange={handleInputChange}
                 required
+                className="border-2 border-black/25 rounded pl-1 mb-2 text-md md:text-lg"
             />
             <br />
             <textarea 
@@ -50,10 +51,11 @@ export default function Comment({data, refreshComments}){
                 value={editModeData.content}
                 onChange={handleInputChange}
                 required
+                className="border-2 border-black/25 rounded pl-1 resize text-md md:text-lg"
             />
             <br />
-            <button onClick={()=>{setEditMode(false)}}>Cancel</button>
-            <button type="submit">Submit</button>
+            <button onClick={()=>{setEditMode(false)}} className="bg-emerald-100 rounded-lg w-20 text-md md:text-lg mr-2">Cancel</button>
+            <button type="submit" className="bg-emerald-100 rounded-lg w-20 text-md md:text-lg">Submit</button>
         </form>
     }
 

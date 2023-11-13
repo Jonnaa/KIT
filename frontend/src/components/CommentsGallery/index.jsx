@@ -38,6 +38,10 @@ export default function CommentsGallery({postId, loggedIn}){
         createComment({...newCommentData, postId:postId})
             .then(()=>refreshComments())
             .catch(err=> console.log(err))
+        setNewCommentData({
+            name:'',
+            content:''
+        })
     }
 
     let commentGallery = [<p key='0' className="ml-5 my-2">No one has commented on this post...</p>]
