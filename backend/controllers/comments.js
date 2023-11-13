@@ -30,7 +30,7 @@ const authMiddleware = (req, res, next) => {
             // Decode the token using the secret key and add the decoded payload to the request object
             const decodedToken = jwt.decode(token, config.jwtSecret);
             req.user = decodedToken;
-            console.log(req.user)
+            // console.log(req.user)
             next();
         } catch (err) {
             // Return an error if the token is invalid
@@ -72,8 +72,8 @@ router.put('/:id', authMiddleware, async (req, res) => {
     // Check if the user who sent the update request is the same user who created the comment
     const userComment = await db.Comment.findById(req.params.id)
         .catch(err=>console.log(err))
-    console.log("\n"+req.user.id)
-    console.log(userComment.userId)
+    // console.log("\n"+req.user.id)
+    // console.log(userComment.userId)
     if (userComment.userId == req.user.id) {
         // If it is the original author, update the comment
         const newComment = await db.Comment.findByIdAndUpdate(
